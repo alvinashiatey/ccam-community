@@ -1,0 +1,203 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --primary-color: #fefefe;
+  --secondary-color: #181818;
+  --ps: 1rem;
+}
+
+#root {
+  display: flex;
+  height: inherit;
+}
+#root .pane {
+  padding-inline: var(--ps);
+  height: inherit;
+}
+#root .left_pane {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: var(--ps);
+}
+#root .left_pane .add_note form {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: 100%;
+  gap: calc(var(--ps) / 2);
+}
+#root .left_pane .add_note form textarea {
+  height: 50%;
+  border: 2px solid var(--secondary-color);
+  background-color: transparent;
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  outline: none;
+  resize: none;
+  border-radius: var(--ps);
+}
+#root .left_pane .add_note form button {
+  height: 2rem;
+  border: none;
+  background-color: var(--secondary-color);
+  border-radius: var(--ps);
+  display: grid;
+  place-content: center;
+  color: tomato;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  outline: none;
+}
+#root .left_pane .add_note form button svg path {
+  stroke: var(--primary-color);
+}
+@media (max-width: 60em) {
+  #root .left_pane {
+    width: 40%;
+  }
+}
+#root .right_pane {
+  flex: 1;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5rem;
+}
+#root .right_pane #notes {
+  height: inherit;
+  overflow-y: scroll;
+}
+#root .right_pane #notes .notes_wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: calc(var(--ps) / 2);
+  overflow: auto;
+  padding-block: var(--ps);
+}
+#root .right_pane #notes .notes_wrapper .note {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: calc(var(--ps) / 2);
+  width: 100%;
+  background-color: aliceblue;
+  padding: calc(var(--ps) / 2);
+  border-radius: var(--ps);
+  animation: colorFade 5s ease-in-out forwards;
+}
+#root .right_pane #notes .notes_wrapper .note .note_header {
+  font-size: 0.8rem;
+  color: #bebebe;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: calc(var(--ps) / 3);
+}
+#root .right_pane #notes .notes_wrapper .note .note_content {
+  padding-inline: calc(var(--ps) / 3);
+}
+
+@keyframes colorFade {
+  0% {
+    background-color: lightcyan;
+  }
+  50% {
+    background-color: lightgray;
+  }
+  100% {
+    background-color: var(--primary-color);
+  }
+}
+body {
+  color: var(--secondary-color);
+  font-family: "Roboto", sans-serif;
+  background-color: #e5e5f7;
+  background-image: linear-gradient(rgba(190, 190, 190, 0.3019607843) 2px, transparent 2px), linear-gradient(90deg, rgba(190, 190, 190, 0.3019607843) 2px, transparent 2px), linear-gradient(rgba(190, 190, 190, 0.3019607843) 1px, transparent 1px), linear-gradient(90deg, rgba(190, 190, 190, 0.3019607843) 1px, #e5e5f7 1px);
+  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+body .main_container {
+  width: inherit;
+  height: inherit;
+}
+body .main_container main {
+  width: inherit;
+  height: inherit;
+}

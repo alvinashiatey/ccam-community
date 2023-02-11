@@ -1,0 +1,21 @@
+@import "components/reset";
+@import "components/config";
+@import "components/home";
+
+
+body{
+    color: var(--secondary-color);
+    font-family: 'Roboto', sans-serif;
+    background-color: #e5e5f7;
+    background-image:  linear-gradient(#BEBEBE4D 2px, transparent 2px), linear-gradient(90deg,#BEBEBE4D 2px, transparent 2px), linear-gradient(#BEBEBE4D 1px, transparent 1px), linear-gradient(90deg, #BEBEBE4D 1px, #e5e5f7 1px);
+    background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    .main_container{
+        width: inherit;
+        height: inherit;
+        main{
+            width: inherit;
+            height: inherit;
+        }
+    }
+}

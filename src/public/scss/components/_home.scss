@@ -1,0 +1,111 @@
+#root{
+  display: flex;
+  height: inherit;
+  .pane {
+    padding-inline: var(--ps);
+    height: inherit;
+  }
+  .left_pane{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-block: var(--ps);
+    .add_note{
+      form{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        height: 100%;
+        gap: calc(var(--ps)/2);
+
+        textarea{
+          height: 50%;
+          border: 2px solid var(--secondary-color);
+          background-color: transparent;
+          color: var(--secondary-color);
+          font-size: 1rem;
+          font-weight: 500;
+          padding: 0.5rem;
+          outline: none;
+          resize: none;
+          border-radius: var(--ps);
+        }
+        button{
+          height: 2rem;
+          border: none;
+          background-color: var(--secondary-color);
+          border-radius: var(--ps);
+          display: grid;
+          place-content: center;
+          color: tomato;
+          font-size: 1.5rem;
+          font-weight: 500;
+          padding: 0.5rem;
+          outline: none;
+          svg {
+            path{
+              stroke: var(--primary-color);
+            }
+          }
+        }
+      }
+    }
+    @media (max-width: 60em){
+      width: 40%;
+    }
+  }
+  .right_pane{
+        flex: 1;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 5rem;
+        #notes{
+          height: inherit;
+          overflow-y: scroll;
+          .notes_wrapper{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+            gap: calc(var(--ps)/2);
+            overflow: auto;
+            padding-block: var(--ps);
+            .note{
+              display: flex;
+              flex-wrap: wrap;
+              flex-direction: column;
+              gap: calc(var(--ps)/2);
+              width: 100%;
+              background-color: aliceblue;
+              padding: calc(var(--ps)/2);
+              border-radius: var(--ps);
+              animation: colorFade 5s ease-in-out forwards;
+              .note_header{
+                font-size: 0.8rem;
+                color: #bebebe;
+                display:flex;
+                justify-content: space-between;
+                padding-inline: calc(var(--ps)/3);
+              }
+              .note_content{
+                padding-inline: calc(var(--ps)/3);
+              }
+            }
+          }
+        }
+    }
+}
+
+@keyframes colorFade {
+    0% {
+        background-color: lightcyan;
+    }
+    50% {
+        background-color: lightgray;
+    }
+    100% {
+        background-color: var(--primary-color);
+    }
+}

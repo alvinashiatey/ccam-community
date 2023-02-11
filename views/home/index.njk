@@ -1,0 +1,43 @@
+{% extends "layout/base.njk"%}
+{%block title %}{{ title }}{%endblock%}
+ {% block body %}
+     <div id="root">
+         <div class="left_pane pane">
+            <div class="blurb">
+                <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid asperiores, deserunt ea eius eveniet illo impedit itaque, minima, molestiae natus non officiis optio provident reiciendis repellendus sint soluta vel.</span></p>
+            </div>
+             <div class="add_note">
+                 <form action="">
+                     <label for="note_content"></label>
+                     <textarea name="content" id="note_content" cols="30" rows="10" ></textarea>
+                     <button type="submit">
+                         <svg width="24px" height="24px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#fefefe"><path d="M22 12L3 20l3.563-8L3 4l19 8zM6.5 12H22"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                     </button>
+                 </form>
+             </div>
+         </div>
+         <div class="right_pane pane">
+             <div id="notes">
+                 <div class="notes_wrapper">
+                     {% for d in data %}
+                         <div class="note" data-id="{{ d.id }}">
+                             <div class="note_header">
+                                 <div class="note_author">
+                                     <p>{{ d.author }}</p>
+                                 </div>
+                                 <div class="timestamp">
+                                     <p>{{ d.timestamp }}</p>
+                                 </div>
+                             </div>
+                             <div class="note_content">
+                                 <p>{{ d.body }}</p>
+                             </div>
+                         </div>
+                     {% endfor %}
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+ {% endblock %}
